@@ -1,0 +1,303 @@
+/*
+  global.css — Your Cargo Contact (APIP Platform)
+  CSS custom properties derived from src/tokens/*.ts
+  All values match the exact prototype (apip.html) — no rounding, no substitutions.
+*/
+
+/* ─── GOOGLE FONTS ────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+/* ─── CUSTOM PROPERTIES ──────────────────────────────────────────────────── */
+:root {
+
+  /* ── PRIMARY PALETTE ── */
+  --ycc-accent:     #5B7CE6;   /* primary action, icon tint, active stepper */
+  --ycc-indigo:     #6366F1;   /* active nav text, user avatar bg, role chip */
+  --ycc-indigo-bg:  #EEF0FE;   /* active nav bg, role chip bg, info banner bg */
+  --ycc-navy:       #0E1438;   /* dark button, print headers */
+
+  /* ── NEUTRAL PALETTE ── */
+  --ycc-page:       #F4F5F9;   /* app root background */
+  --ycc-card:       #FFFFFF;   /* card surface, sidebar, topbar */
+  --ycc-soft:       #F6F7FB;   /* inset, form field bg, empty states */
+  --ycc-border:     #E8EAF2;   /* card borders, dividers, input borders */
+  --ycc-ink:        #1B2440;   /* primary text */
+  --ycc-sub:        #8A93AD;   /* secondary text */
+  --ycc-faint:      #AEB4C9;   /* placeholder, disabled, footnotes */
+
+  /* ── SEMANTIC — STATUS ── */
+  --ycc-status-released-text:  #16A34A;
+  --ycc-status-released-bg:    #DCFCE7;
+  --ycc-status-review-text:    #EA580C;
+  --ycc-status-review-bg:      #FEF3C7;
+  --ycc-status-hold-text:      #C2410C;
+  --ycc-status-hold-bg:        #FFEDD5;
+  --ycc-status-inspect-text:   #B91C1C;
+  --ycc-status-inspect-bg:     #FEE2E2;
+  --ycc-status-unknown-text:   #6D28D9;
+  --ycc-status-unknown-bg:     #EDE9FE;
+  --ycc-status-missing-text:   #475569;
+  --ycc-status-missing-bg:     #E2E8F0;
+
+  /* ── SEMANTIC — MILESTONE PILLS ── */
+  --ycc-ms-cleared-text:   #16A34A;
+  --ycc-ms-cleared-bg:     #DCFCE7;
+  --ycc-ms-progress-text:  #1D4ED8;
+  --ycc-ms-progress-bg:    #DBEAFE;
+  --ycc-ms-hold-text:      #B91C1C;
+  --ycc-ms-hold-bg:        #FEE2E2;
+  --ycc-ms-pending-text:   #EA580C;
+  --ycc-ms-pending-bg:     #FEF3C7;
+  --ycc-ms-active-text:    #16A34A;
+  --ycc-ms-active-bg:      #DCFCE7;
+  --ycc-ms-inactive-text:  #64748B;
+  --ycc-ms-inactive-bg:    #F1F5F9;
+
+  /* ── SEMANTIC — CLEARANCE GATEWAY ── */
+  --ycc-cl-ready-text:      #64748B;
+  --ycc-cl-ready-bg:        #F1F5F9;
+  --ycc-cl-submitted-text:  #1D4ED8;
+  --ycc-cl-submitted-bg:    #DBEAFE;
+  --ycc-cl-ack-text:        #6D28D9;
+  --ycc-cl-ack-bg:          #EDE9FE;
+  --ycc-cl-released-text:   #16A34A;
+  --ycc-cl-released-bg:     #DCFCE7;
+  --ycc-cl-hold-text:       #B91C1C;
+  --ycc-cl-hold-bg:         #FEE2E2;
+  --ycc-cl-docs-text:       #EA580C;
+  --ycc-cl-docs-bg:         #FEF3C7;
+
+  /* ── SEMANTIC — SIGNALS ── */
+  --ycc-success:            #16A34A;
+  --ycc-warning:            #EA580C;
+  --ycc-danger:             #B91C1C;
+  --ycc-blue:               #1D4ED8;
+  --ycc-purple:             #6D28D9;
+  --ycc-slate:              #475569;
+
+  --ycc-success-text:       #166534;   /* dark text on success bg */
+  --ycc-warning-text:       #9A3412;   /* dark text on warning bg */
+  --ycc-danger-text:        #B91C1C;
+  --ycc-info-text-deep:     #3730A3;   /* PGTS banner title */
+  --ycc-info-text-mid:      #4338CA;   /* PGTS banner body */
+
+  /* ── SEMANTIC — ALERT BORDERS ── */
+  --ycc-border-red:         #FCA5A5;
+  --ycc-border-amber:       #FCD34D;
+  --ycc-border-green:       #86EFAC;
+  --ycc-border-green-soft:  #A7F3D0;
+
+  /* ── AI BOT IDENTITY ── */
+  --ycc-bot-vis:   #5B7CE6;   /* Vision-OCR */
+  --ycc-bot-hist:  #0EA5E9;   /* Historical Match */
+  --ycc-bot-llm:   #8B5CF6;   /* LLM Reasoner */
+  --ycc-bot-stat:  #14B8A6;   /* Market-Stat */
+
+  /* ── TYPOGRAPHY ── */
+  --ycc-font-sans:  'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ycc-font-mono:  ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+  --ycc-size-xs2:   9px;      /* nav group headers */
+  --ycc-size-xs:    10px;     /* field labels (uppercase) */
+  --ycc-size-xs3:   10.5px;   /* footnotes */
+  --ycc-size-sm2:   11px;     /* secondary meta */
+  --ycc-size-sm:    12px;     /* standard body / form */
+  --ycc-size-sm3:   12.5px;   /* sidebar section labels */
+  --ycc-size-base:  13px;     /* card values, refs */
+  --ycc-size-md:    14px;     /* topbar, prose */
+  --ycc-size-md2:   15px;     /* shipper name */
+  --ycc-size-lg:    18px;     /* detail page title */
+  --ycc-size-xl:    20px;     /* KPI values, headings */
+  --ycc-size-2xl:   24px;     /* KPI large value */
+
+  --ycc-weight-regular:    400;
+  --ycc-weight-medium:     500;
+  --ycc-weight-semibold:   600;
+  --ycc-weight-bold:       700;
+  --ycc-weight-extrabold:  800;
+  --ycc-weight-black:      900;
+
+  --ycc-leading-tight:  1.25;
+  --ycc-leading-snug:   1.375;
+  --ycc-leading-normal: 1.5;
+
+  --ycc-tracking-wide:   0.025em;
+  --ycc-tracking-wider:  0.05em;
+
+  /* ── SPACING ── */
+  --ycc-space-0:    0px;
+  --ycc-space-0_5:  2px;
+  --ycc-space-1:    4px;
+  --ycc-space-1_5:  6px;
+  --ycc-space-2:    8px;
+  --ycc-space-2_5:  10px;
+  --ycc-space-3:    12px;
+  --ycc-space-3_5:  14px;
+  --ycc-space-4:    16px;
+  --ycc-space-5:    20px;
+  --ycc-space-6:    24px;
+  --ycc-space-8:    32px;
+
+  /* ── LAYOUT SHELL ── */
+  --ycc-sidebar-width: 224px;
+  --ycc-topbar-height: 58px;
+
+  /* ── BORDER RADII ── */
+  --ycc-radius-sm:   4px;
+  --ycc-radius-lg:   8px;
+  --ycc-radius-xl:   12px;
+  --ycc-radius-2xl:  16px;
+  --ycc-radius-full: 9999px;
+
+  /* ── SHADOWS ── */
+  --ycc-shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ycc-shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.10), 0 4px 6px -4px rgb(0 0 0 / 0.10);
+
+  /* ── Z-INDEX ── */
+  --ycc-z-dropdown: 20;
+  --ycc-z-overlay:  30;
+}
+
+/* ─── MINIMAL RESET ──────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Poppins renders crisply at these settings — matches the prototype's
+     -webkit-font-smoothing: antialiased injected via <style> in apip.html */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ycc-font-sans);
+  font-size: var(--ycc-size-sm);        /* 12px — matches C and prototype body */
+  font-weight: var(--ycc-weight-regular);
+  line-height: var(--ycc-leading-normal);
+  color: var(--ycc-ink);
+  background-color: var(--ycc-page);
+
+  /* Antialiasing block from apip.html injected <style>:
+     .app-root, .app-root * { -webkit-font-smoothing: antialiased;
+                               -moz-osx-font-smoothing: grayscale;
+                               text-rendering: optimizeLegibility; } */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ─── APP SHELL ──────────────────────────────────────────────────────────── */
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--ycc-page);
+  color: var(--ycc-ink);
+  font-family: var(--ycc-font-sans);
+}
+
+#root,
+html,
+body {
+  height: 100%;
+}
+
+/* ─── PRINT ──────────────────────────────────────────────────────────────── */
+/* Sourced from the @media print block in apip.html injected <style> */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .app-root {
+    background: #fff !important;
+  }
+
+  .print-area {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+/* ─── KEYFRAMES ──────────────────────────────────────────────────────────── */
+/* Sourced from apip.html injected <style>: used on connectivity status dots */
+
+@keyframes flpulse {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1;   }
+  100% { opacity: 0.3; }
+}
+
+.animate-flpulse {
+  animation: flpulse 1.5s ease-in-out infinite;
+}
+
+/* ─── UTILITY HELPERS ────────────────────────────────────────────────────── */
+/* Thin set of atomic helpers used repeatedly in the prototype.
+   These are NOT a full utility system — use Tailwind or your component
+   library for everything else. These exist purely to support the token vars. */
+
+.font-mono {
+  font-family: var(--ycc-font-mono);
+}
+
+.font-sans {
+  font-family: var(--ycc-font-sans);
+}
+
+.text-ink   { color: var(--ycc-ink);   }
+.text-sub   { color: var(--ycc-sub);   }
+.text-faint { color: var(--ycc-faint); }
+.text-accent { color: var(--ycc-accent); }
+.text-indigo { color: var(--ycc-indigo); }
+
+.bg-page   { background-color: var(--ycc-page);  }
+.bg-card   { background-color: var(--ycc-card);  }
+.bg-soft   { background-color: var(--ycc-soft);  }
+.bg-indigo-light { background-color: var(--ycc-indigo-bg); }
