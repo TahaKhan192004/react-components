@@ -178,56 +178,64 @@ The reference app also ships `src/data/nav.ts` — the full 160-page navigation 
 | CSS build | `npm run build:css` | ✅ Tailwind CLI scans source, outputs `dist/ycc-ui.css` |
 | Full build | `npm run build` | ✅ All three outputs in one command |
 | Consumer test | `test-consumer/` project | ✅ `file:../ay` dependency, `tsc` exit 0, `vite build` exit 0, 165 kB output |
+| npm publish | `npm publish --access public` | ✅ Live on public registry as of 28 June 2026 |
 
 ---
 
-### ✅ Local Usage (Before Publishing)
+### ✅ Published — Live on npm
 
-Any project on the same machine can install the package today using a `file:` path:
+The package is published and publicly available on the npm registry.
 
-```json
-{
-  "dependencies": {
-    "@yourcargoc/ui": "file:/path/to/ay",
-    "lucide-react": "^0.383.0",
-    "react": "^18",
-    "react-dom": "^18"
-  }
-}
-```
+**Package page:** https://www.npmjs.com/package/@yourcargoc/ui
 
+**Install in any project:**
 ```bash
-npm install
+npm i @yourcargoc/ui
 ```
 
+**Usage:**
 ```tsx
-import { PageShell, Sidebar, DataTable, Modal, useToast } from '@yourcargoc/ui'
+import '@yourcargoc/ui/dist/ycc-ui.css'   // pre-built styles (skip if project uses Tailwind)
+import { Card, Btn, DataTable, useToast, ToastStack } from '@yourcargoc/ui'
+```
+
+**If the project uses Tailwind**, add one line to `tailwind.config.ts` instead of importing the CSS:
+```ts
+content: [
+  './src/**/*.{ts,tsx}',
+  './node_modules/@yourcargoc/ui/dist/**/*.js',
+]
 ```
 
 ---
 
-## ⚠️ One Remaining Step — npm Publish
+### ✅ Verified Installation
 
-Everything is built and verified. The package is **not yet live on the public npm registry**. To make `npm install @yourcargoc/ui` work from any device globally:
+Tested in a clean Vite + React project (`C:\Users\DELL\OneDrive\Desktop\trying`):
 
-**1. Create the npm organisation** (one-time, in browser)
-- Go to [npmjs.com](https://www.npmjs.com) → sign in → Create Organisation → name it `ycc`
-
-**2. Login on this machine**
-```bash
-npm login
+```
+added 5 packages, and audited 6 packages in 31s
 ```
 
-**3. Publish**
+All components, TypeScript types, and styles resolved without errors.
+
+---
+
+### Future Releases
+
+When new components are added or bugs are fixed:
+
 ```bash
-cd "c:\My Web Sites\ay"
+# 1. Bump version in package.json (e.g. 0.1.0 → 0.2.0)
+# 2. Rebuild
 npm run build
+# 3. Publish
 npm publish --access public
 ```
 
-After this, any developer on any device can install the package with:
+Consumers update with:
 ```bash
-npm install @yourcargoc/ui lucide-react
+npm i @yourcargoc/ui@latest
 ```
 
 ---

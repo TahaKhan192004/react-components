@@ -9,13 +9,81 @@ Component library reverse-engineered from the YCC (Your Cargo Contact) APIP Plat
 ## Installation
 
 ```bash
-npm install @yourcargoc/ui lucide-react
+npm i @yourcargoc/ui
 ```
 
-Peer dependencies — install once per project if not already present:
+> `lucide-react`, `react`, and `react-dom` are peer dependencies — npm v7+ installs them automatically. If you use Lucide icons directly in your own code, add it explicitly: `npm i lucide-react`.
+
+**Package page:** https://www.npmjs.com/package/@yourcargoc/ui
+
+---
+
+## Using @yourcargoc/ui in a New Project
+
+### Step 1 — Create a React project
 
 ```bash
-npm install react@^18 react-dom@^18
+npm create vite@latest my-app -- --template react-ts
+cd my-app
+npm install
+```
+
+### Step 2 — Install the package
+
+```bash
+npm i @yourcargoc/ui
+```
+
+### Step 3 — Set up styles
+
+**Option A — No Tailwind (simplest)**
+
+Import the pre-built CSS once in `src/main.tsx`:
+
+```tsx
+import '@yourcargoc/ui/dist/ycc-ui.css'
+```
+
+**Option B — Project already uses Tailwind**
+
+Add one line to `tailwind.config.ts` so Tailwind scans the bundled JS for class names:
+
+```ts
+export default {
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@yourcargoc/ui/dist/**/*.js',
+  ],
+  theme: { extend: {} },
+  plugins: [],
+}
+```
+
+### Step 4 — Use components
+
+```tsx
+// src/App.tsx
+import '@yourcargoc/ui/dist/ycc-ui.css'  // only needed for Option A
+
+import { Card, Btn, Badge, useToast, ToastStack } from '@yourcargoc/ui'
+
+export default function App() {
+  const { toast, toasts, dismiss } = useToast()
+
+  return (
+    <Card>
+      <Badge label="Released" color="#15803D" bg="#DCFCE7" />
+      <Btn dark onClick={() => toast.success('It works!')}>Click me</Btn>
+      <ToastStack toasts={toasts} onDismiss={dismiss} />
+    </Card>
+  )
+}
+```
+
+### Step 5 — Run
+
+```bash
+npm run dev
 ```
 
 ---
@@ -41,28 +109,7 @@ function Example() {
 
 ## Tailwind Setup
 
-Components use Tailwind utility classes. Add one line to your `tailwind.config.ts` so Tailwind scans the bundled JS for class names:
-
-```ts
-// tailwind.config.ts
-export default {
-  content: [
-    './src/**/*.{ts,tsx}',
-    './node_modules/@yourcargoc/ui/dist/**/*.js',  // ← scan @yourcargoc/ui classes
-  ],
-  theme: { extend: {} },
-  plugins: [],
-}
-```
-
-**No Tailwind in your project?** Import the pre-built stylesheet instead — no config needed:
-
-```ts
-// main.tsx or App.tsx
-import '@yourcargoc/ui/dist/ycc-ui.css'
-```
-
-> **Note for library contributors:** the `ay/` repo's own Tailwind config uses `preflight: false` to avoid conflicts with the original prototype's CSS reset. Consumer projects should use the standard Tailwind setup (with preflight) as shown above.
+> **Note for library contributors:** the `ay/` repo's own Tailwind config uses `preflight: false` to avoid conflicts with the original prototype's CSS reset. Consumer projects should use the standard Tailwind setup (with preflight) as shown in Step 3 above.
 
 ---
 
