@@ -20,6 +20,8 @@ npm i @yourcargoc/ui
 
 ## Using @yourcargoc/ui in a New Project
 
+> **Tailwind CSS 3 is required.** The library's components use Tailwind utility classes — your project must run Tailwind so those classes are generated.
+
 ### Step 1 — Create a React project
 
 ```bash
@@ -28,29 +30,23 @@ cd my-app
 npm install
 ```
 
-### Step 2 — Install the package
+### Step 2 — Install the package and Tailwind CSS 3
 
 ```bash
 npm i @yourcargoc/ui
+npm i -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
 ```
 
-### Step 3 — Set up styles
+### Step 3 — Configure Tailwind
 
-**Option A — No Tailwind (simplest)**
+In `tailwind.config.js`, add the content paths so Tailwind scans both your source and the component library's bundled JS:
 
-Import the pre-built CSS once in `src/main.tsx`:
-
-```tsx
-import '@yourcargoc/ui/dist/ycc-ui.css'
-```
-
-**Option B — Project already uses Tailwind**
-
-Add one line to `tailwind.config.ts` so Tailwind scans the bundled JS for class names:
-
-```ts
+```js
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
+    './index.html',
     './src/**/*.{ts,tsx}',
     './node_modules/@yourcargoc/ui/dist/**/*.js',
   ],
@@ -59,12 +55,33 @@ export default {
 }
 ```
 
-### Step 4 — Use components
+### Step 4 — Set up your CSS
+
+Replace `src/index.css` with:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  background-color: #F4F5F9;
+  color: #1B2440;
+}
+```
+
+Make sure `src/main.tsx` imports it:
 
 ```tsx
-// src/App.tsx
-import '@yourcargoc/ui/dist/ycc-ui.css'  // only needed for Option A
+import './index.css'
+```
 
+### Step 5 — Use components
+
+```tsx
 import { Card, Btn, Badge, useToast, ToastStack } from '@yourcargoc/ui'
 
 export default function App() {
@@ -80,11 +97,13 @@ export default function App() {
 }
 ```
 
-### Step 5 — Run
+### Step 6 — Run
 
 ```bash
 npm run dev
 ```
+
+> **Note:** `dist/ycc-ui.css` is still shipped in the package for quick prototypes that don't use Tailwind, but Tailwind is the recommended and fully supported path.
 
 ---
 
