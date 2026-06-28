@@ -19,6 +19,7 @@ export type { BannerVariant } from './Banner'
 export { ActionRow } from './ActionRow'
 export { DataTable } from './DataTable'
 export type { TableCol } from './DataTable'
+export { statusCell, avatarCell, toggleCell, badgeCell } from './TableCells'
 export { TabSwitcher } from './TabSwitcher'
 export type { TabItem } from './TabSwitcher'
 
@@ -29,11 +30,16 @@ export { AField } from './AField'
 export type { FieldMeta } from './AField'
 export { Sel } from './Sel'
 export { Seg } from './Seg'
+export { Select } from './Select'
+export { FormSection } from './FormSection'
 
 // Feedback & utility
 export { Spinner } from './Spinner'
 export { Toast, ToastStack } from './Toast'
 export type { ToastVariant } from './Toast'
+export { useToast } from '../hooks/useToast'
+export type { ToastItem } from '../hooks/useToast'
+export { Modal } from './Modal'
 export { Stepper } from './Stepper'
 export type { StepperStage } from './Stepper'
 export { DropZone } from './DropZone'
@@ -70,3 +76,12 @@ export { PageHeader } from './PageHeader'
 export { Breadcrumb } from './Breadcrumb'
 export { Footer } from './Footer'
 export { WorkspaceSwitcher } from './WorkspaceSwitcher'
+
+// Design tokens — re-exported for consumers building custom components
+export {
+  primary, neutral, status, semantic,
+  milestone, clearance, direction, tStatus, warehouseStatus, branchModule, aiBot,
+  colorTokens,
+  fontFamily, fontWeight, fontSize, lineHeight, letterSpacing, textStyle, typographyTokens,
+  spacing, size, radius, shadow, breakpoint, zIndex, transition, animation, layoutTokens,
+} from '../tokens'
