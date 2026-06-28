@@ -148,7 +148,14 @@ export function Sidebar({ logoSrc, roleLabel, isAdmin, branches, activeBranch, o
       style={{ background: neutral.card, borderColor: neutral.border }}
     >
       <div className="flex items-center px-5 py-4">
-        <img src={logoSrc} alt="Logo" style={{ height: 46, width: 'auto' }} />
+        {logoSrc ? (
+          <img src={logoSrc} alt="YCC" style={{ height: 46, width: 'auto' }} />
+        ) : (
+          <svg width="52" height="36" viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="36" rx="6" fill="#0E1438"/>
+            <text x="8" y="25" fontFamily="'Poppins', sans-serif" fontWeight="800" fontSize="16" fill="#FFFFFF" letterSpacing="1">YCC</text>
+          </svg>
+        )}
       </div>
       <div
         className="mx-3 mb-1 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[10px] font-semibold"
