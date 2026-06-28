@@ -9,7 +9,7 @@ Component library reverse-engineered from the YCC (Your Cargo Contact) APIP Plat
 ## Installation
 
 ```bash
-npm install @ycc/ui lucide-react
+npm install @yourcargoc/ui lucide-react
 ```
 
 Peer dependencies — install once per project if not already present:
@@ -23,7 +23,7 @@ npm install react@^18 react-dom@^18
 ## Quick Start
 
 ```tsx
-import { Card, Btn, DataTable, useToast, ToastStack } from '@ycc/ui'
+import { Card, Btn, DataTable, useToast, ToastStack } from '@yourcargoc/ui'
 
 function Example() {
   const { toast, toasts, dismiss } = useToast()
@@ -48,7 +48,7 @@ Components use Tailwind utility classes. Add one line to your `tailwind.config.t
 export default {
   content: [
     './src/**/*.{ts,tsx}',
-    './node_modules/@ycc/ui/dist/**/*.js',  // ← scan @ycc/ui classes
+    './node_modules/@yourcargoc/ui/dist/**/*.js',  // ← scan @yourcargoc/ui classes
   ],
   theme: { extend: {} },
   plugins: [],
@@ -59,7 +59,7 @@ export default {
 
 ```ts
 // main.tsx or App.tsx
-import '@ycc/ui/dist/ycc-ui.css'
+import '@yourcargoc/ui/dist/ycc-ui.css'
 ```
 
 > **Note for library contributors:** the `ay/` repo's own Tailwind config uses `preflight: false` to avoid conflicts with the original prototype's CSS reset. Consumer projects should use the standard Tailwind setup (with preflight) as shown above.
@@ -71,7 +71,7 @@ import '@ycc/ui/dist/ycc-ui.css'
 All design values are bundled with the package. Import from the barrel:
 
 ```ts
-import { primary, neutral } from '@ycc/ui'
+import { primary, neutral } from '@yourcargoc/ui'
 ```
 
 | Token | Value | Usage |
@@ -1488,7 +1488,7 @@ badgeCell<T>(
 ## Token Quick Reference
 
 ```ts
-import { primary, neutral, status, semantic } from '@ycc/ui'
+import { primary, neutral, status, semantic } from '@yourcargoc/ui'
 
 // Status chip colours (from status token)
 status.released  // { text: '#16A34A', bg: '#DCFCE7' }
@@ -1558,5 +1558,5 @@ npm publish --access public
 Consumers update with a standard `npm install`:
 
 ```bash
-npm install @ycc/ui@latest
+npm install @yourcargoc/ui@latest
 ```

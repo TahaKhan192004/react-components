@@ -1,10 +1,10 @@
 # Project Completion Report
-## @ycc/ui — YCC APIP Platform Component Library
+## @yourcargoc/ui — YCC APIP Platform Component Library
 
 **Prepared for:** Fassih / YCC (Your Cargo Contact)
 **Delivered by:** Development Team
 **Date:** 28 June 2026
-**Package:** `@ycc/ui` v0.1.0
+**Package:** `@yourcargoc/ui` v0.1.0
 
 ---
 
@@ -188,7 +188,7 @@ Any project on the same machine can install the package today using a `file:` pa
 ```json
 {
   "dependencies": {
-    "@ycc/ui": "file:/path/to/ay",
+    "@yourcargoc/ui": "file:/path/to/ay",
     "lucide-react": "^0.383.0",
     "react": "^18",
     "react-dom": "^18"
@@ -201,14 +201,14 @@ npm install
 ```
 
 ```tsx
-import { PageShell, Sidebar, DataTable, Modal, useToast } from '@ycc/ui'
+import { PageShell, Sidebar, DataTable, Modal, useToast } from '@yourcargoc/ui'
 ```
 
 ---
 
 ## ⚠️ One Remaining Step — npm Publish
 
-Everything is built and verified. The package is **not yet live on the public npm registry**. To make `npm install @ycc/ui` work from any device globally:
+Everything is built and verified. The package is **not yet live on the public npm registry**. To make `npm install @yourcargoc/ui` work from any device globally:
 
 **1. Create the npm organisation** (one-time, in browser)
 - Go to [npmjs.com](https://www.npmjs.com) → sign in → Create Organisation → name it `ycc`
@@ -227,7 +227,7 @@ npm publish --access public
 
 After this, any developer on any device can install the package with:
 ```bash
-npm install @ycc/ui lucide-react
+npm install @yourcargoc/ui lucide-react
 ```
 
 ---
@@ -266,9 +266,9 @@ ay/
 │   ├── index.cjs          # CommonJS — 41.7 kB
 │   ├── components/        # TypeScript declarations (*.d.ts)
 │   └── ycc-ui.css         # Pre-built Tailwind CSS — 11.9 kB
-├── test-consumer/         # Verification project — imports @ycc/ui via file:
+├── test-consumer/         # Verification project — imports @yourcargoc/ui via file:
 ├── unwanted/              # Archived: original docs, prototype source, global.css
-├── package.json           # @ycc/ui v0.1.0
+├── package.json           # @yourcargoc/ui v0.1.0
 ├── vite.config.ts         # App mode + library mode
 ├── tsconfig.app.json      # Development typecheck config
 ├── tsconfig.build.json    # Declaration emit config

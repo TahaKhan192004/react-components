@@ -1,5 +1,5 @@
 {
-  "name": "@ycc/ui",
+  "name": "@yourcargoc/ui",
   "version": "0.1.0",
   "description": "YCC APIP Platform component library — React 18, TypeScript, Tailwind CSS",
   "private": false,
