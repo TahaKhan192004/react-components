@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import type { ToastVariant } from '@/components/Toast'
+import type { ToastVariant } from '../components/Toast'
 
 export interface ToastItem {
   id: string

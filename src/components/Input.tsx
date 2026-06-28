@@ -1,3 +1,4 @@
+import type React from 'react'
 import { neutral } from '@/tokens'
 
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'className'> {

@@ -1,3 +1,4 @@
+import type React from 'react'
 import { neutral } from '@/tokens'
 
 interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'className'> {

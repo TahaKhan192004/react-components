@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Globe, Lock, Users, ChevronDown, ArrowRight } from 'lucide-react'
 import { primary, neutral } from '@/tokens'
-import type { NavSection } from '@/types/nav'
+import type { NavSection } from '../types/nav'
 import { SidebarItem } from './SidebarItem'
 import { WorkspaceSwitcher } from './WorkspaceSwitcher'
 import { Footer } from './Footer'
