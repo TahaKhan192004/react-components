@@ -11,14 +11,17 @@ interface PanelCardProps {
 export function PanelCard({ title, icon: Icon, children }: PanelCardProps) {
   return (
     <div
-      className="rounded-2xl bg-white p-4"
-      style={{ border: `1px solid ${neutral.border}` }}
+      className="rounded-2xl overflow-hidden"
+      style={{ border: `1px solid ${neutral.border}`, background: neutral.card }}
     >
-      <div className="mb-3 flex items-center gap-2">
+      <div
+        className="flex items-center gap-2 px-4 py-3 border-b"
+        style={{ borderColor: neutral.border, background: neutral.soft }}
+      >
         <Icon size={15} color={primary.accent} />
-        <h3 className="text-sm font-bold">{title}</h3>
+        <h3 className="text-[12.5px] font-bold" style={{ color: neutral.ink }}>{title}</h3>
       </div>
-      {children}
+      <div className="p-4">{children}</div>
     </div>
   )
 }

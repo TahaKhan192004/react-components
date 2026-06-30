@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react'
 import { neutral } from '@/tokens'
 
 interface KVProps {
   k: string
-  v: string
+  v: ReactNode
 }
 
 export function KV({ k, v }: KVProps) {

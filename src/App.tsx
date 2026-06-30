@@ -25,6 +25,7 @@ import { AirWarehouse }  from '@/pages/AirWarehouse'
 import { AirTrackTrace } from '@/pages/AirTrackTrace'
 import { ScdForm }       from '@/pages/ScdForm'
 import { SettingsPage }  from '@/pages/SettingsPage'
+import { ManifestDetail } from '@/pages/ManifestDetail'
 import { NotBuilt }      from '@/pages/NotBuilt'
 
 // ─── Shell constants ──────────────────────────────────────────────────────────
@@ -491,6 +492,7 @@ export default function App() {
       case 'ceo':      return <CeoDashboard />
       case 'airwh':    return <AirWarehouse />
       case 'airtt':    return <AirTrackTrace />
+      case 'manifest-detail': return <ManifestDetail onBack={() => setPage('airtt')} />
       case 'scd':      return <ScdForm onToast={addToast} />
       case 'settings': return <SettingsPage onToast={addToast} />
       default:         return <NotBuilt pageId={p} />

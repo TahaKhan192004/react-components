@@ -26,25 +26,29 @@ function Bar({ pct, tone }: { pct: number; tone: string }) {
 
 export function Top5Card({ title, icon: Icon, iconTone, items, barTone, barScale = 4, footnote }: Top5CardProps) {
   return (
-    <div className="rounded-2xl p-4" style={{ background: neutral.card, border: `1px solid ${neutral.border}` }}>
-      <div className="mb-3 flex items-center gap-1.5 text-[13px] font-bold">
+    <div className="rounded-2xl overflow-hidden" style={{ background: neutral.card, border: `1px solid ${neutral.border}` }}>
+      <div
+        className="flex items-center gap-1.5 px-4 py-3 border-b"
+        style={{ borderColor: neutral.border, background: neutral.soft }}
+      >
         <Icon size={15} color={iconTone} />
-        {title}
+        <span className="text-[12.5px] font-bold" style={{ color: neutral.ink }}>{title}</span>
       </div>
 
-      <div className="space-y-2.5">
-        {items.map((item, i) => (
-          <div key={i}>
-            <div className="mb-1 flex items-center justify-between text-[12px]">
-              <span className="font-semibold">{item.label}</span>
-              <span style={{ color: neutral.sub }}>{item.pct}%</span>
+      <div className="p-4">
+        <div className="space-y-2.5">
+          {items.map((item, i) => (
+            <div key={i}>
+              <div className="mb-1 flex items-center justify-between text-[12px]">
+                <span className="font-semibold">{item.label}</span>
+                <span style={{ color: neutral.sub }}>{item.pct}%</span>
+              </div>
+              <Bar pct={item.pct * barScale} tone={barTone} />
             </div>
-            <Bar pct={item.pct * barScale} tone={barTone} />
-          </div>
-        ))}
+          ))}
+        </div>
+        {footnote && <p className="mt-3 text-[10.5px]" style={{ color: neutral.faint }}>{footnote}</p>}
       </div>
-
-      <p className="mt-2 text-[10.5px]" style={{ color: neutral.faint }}>{footnote}</p>
     </div>
   )
 }

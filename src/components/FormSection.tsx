@@ -22,7 +22,7 @@ export function FormSection({ title, description, children, className = '' }: Fo
           {description}
         </p>
       )}
-      <div>{children}</div>
+      <div className="flex flex-col gap-3">{children}</div>
     </div>
   )
 }

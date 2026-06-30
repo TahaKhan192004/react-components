@@ -32,6 +32,7 @@ export { Sel } from './Sel'
 export { Seg } from './Seg'
 export { Select } from './Select'
 export { FormSection } from './FormSection'
+export { Field } from './Field'
 
 // Feedback & utility
 export { Spinner } from './Spinner'
