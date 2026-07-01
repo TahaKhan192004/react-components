@@ -1,13 +1,13 @@
-import type React from 'react'
+import type { ReactNode } from 'react'
 import { neutral } from '@/tokens'
+import { Input } from './Input'
 
 interface FieldProps {
   label: string
   error?: string
   hint?: string
   required?: boolean
-  children?: React.ReactNode
-  // shorthand: pass these to render a plain input without a child
+  children?: ReactNode
   value?: string
   onChange?: (v: string) => void
   placeholder?: string
@@ -24,19 +24,13 @@ export function Field({ label, error, hint, required, children, value, onChange,
       </label>
 
       {children ?? (
-        <input
+        <Input
           type={type}
           value={value ?? ''}
           onChange={e => onChange?.(e.target.value)}
           placeholder={placeholder}
           disabled={disabled}
-          className="w-full rounded-lg px-2.5 py-1.5 text-[12px] outline-none"
-          style={{
-            border: `1px solid ${error ? '#EF4444' : neutral.border}`,
-            background: disabled ? neutral.soft : '#fff',
-            color: neutral.ink,
-            opacity: disabled ? 0.6 : 1,
-          }}
+          error={!!error}
         />
       )}
 

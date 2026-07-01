@@ -5,6 +5,9 @@ export { Col } from './Col'
 
 // Primitives
 export { Card } from './Card'
+export { CardHeader } from './CardHeader'
+export { CardBody } from './CardBody'
+export { CardFooter } from './CardFooter'
 export { PanelCard } from './PanelCard'
 export { Btn } from './Btn'
 export { Kpi } from './Kpi'

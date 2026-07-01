@@ -9,7 +9,7 @@ interface CardProps {
 export function Card({ children, pad = true }: CardProps) {
   return (
     <div
-      className={`rounded-2xl ${pad ? 'p-4' : ''}`}
+      className={`rounded-2xl overflow-hidden ${pad ? 'p-4' : ''}`}
       style={{ background: neutral.card, border: `1px solid ${neutral.border}` }}
     >
       {children}

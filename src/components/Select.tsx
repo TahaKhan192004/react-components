@@ -1,4 +1,5 @@
-import { neutral } from '@/tokens'
+import { useState } from 'react'
+import { neutral, primary } from '@/tokens'
 import { Lbl } from './Lbl'
 
 type OptItem = { value: string; label: string }
@@ -13,14 +14,18 @@ interface SelectProps {
   disabled?: boolean
 }
 
-/**
- * Full-width, labeled form select — matches Input height and border style.
- * Use for form fields. For compact inline filters use <Sel> instead.
- */
 export function Select({ label, value, onChange, opts, placeholder, error, disabled }: SelectProps) {
+  const [focused, setFocused] = useState(false)
+
   const items: OptItem[] = opts.map(o =>
     typeof o === 'string' ? { value: o, label: o } : o
   )
+
+  const borderColor = error
+    ? '#EF4444'
+    : focused
+      ? primary.accent
+      : neutral.border
 
   return (
     <div>
@@ -29,13 +34,17 @@ export function Select({ label, value, onChange, opts, placeholder, error, disab
         value={value}
         onChange={e => onChange(e.target.value)}
         disabled={disabled}
-        className="w-full rounded-lg px-2.5 py-1.5 text-[12px] outline-none border-0"
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        className="w-full rounded-lg px-2.5 py-1.5 text-[12px] outline-none"
         style={{
-          border: `1px solid ${error ? '#EF4444' : neutral.border}`,
+          border: `1px solid ${borderColor}`,
           background: disabled ? neutral.soft : '#fff',
           color: value ? neutral.ink : neutral.faint,
           cursor: disabled ? 'not-allowed' : 'pointer',
           opacity: disabled ? 0.6 : 1,
+          boxShadow: focused && !error ? `0 0 0 3px ${primary.accent}22` : undefined,
+          transition: 'border-color 0.15s, box-shadow 0.15s',
         }}
       >
         {placeholder && (

@@ -38,20 +38,20 @@ export function ModuleCard({ icon: Icon, label, gpm, inbound, outbound, onOpen }
       </div>
 
       <div className="p-4">
-      <div className="grid grid-cols-2 gap-2">
-        <div className="rounded-xl px-3 py-2" style={{ background: neutral.soft }}>
-          <div className="text-[20px] font-bold leading-none">{inbound}</div>
-          <div className="mt-1 text-[10px] font-semibold uppercase tracking-wide" style={{ color: neutral.faint }}>Inbound</div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="rounded-xl px-3 py-2" style={{ background: neutral.soft }}>
+            <div className="text-[20px] font-bold leading-none">{inbound}</div>
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-wide" style={{ color: neutral.faint }}>Inbound</div>
+          </div>
+          <div className="rounded-xl px-3 py-2" style={{ background: neutral.soft }}>
+            <div className="text-[20px] font-bold leading-none">{outbound}</div>
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-wide" style={{ color: neutral.faint }}>Outbound</div>
+          </div>
         </div>
-        <div className="rounded-xl px-3 py-2" style={{ background: neutral.soft }}>
-          <div className="text-[20px] font-bold leading-none">{outbound}</div>
-          <div className="mt-1 text-[10px] font-semibold uppercase tracking-wide" style={{ color: neutral.faint }}>Outbound</div>
-        </div>
-      </div>
 
-      <button onClick={onOpen} className="mt-3 flex items-center gap-1 text-[11px] font-semibold" style={{ color: primary.accent }}>
-        Open dashboard <ArrowRight size={13} />
-      </button>
+        <button onClick={onOpen} className="mt-3 flex items-center gap-1 text-[11px] font-semibold" style={{ color: primary.accent }}>
+          Open dashboard <ArrowRight size={13} />
+        </button>
       </div>
     </div>
   )
